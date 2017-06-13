@@ -1,10 +1,12 @@
 <?php
 
+session_start();
 include '../librerias.php';
 
 $oUsuario=new Usuario($_REQUEST["nomusu"],$_REQUEST["claveusu"]);
 if ($oUsuario->VerificaAcceso()) {
     echo 'Todo bien';
+    $_SESSION["USR"]=$oUsuario;//validando al usuario inicial
 }
  else {
     

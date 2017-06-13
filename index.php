@@ -21,7 +21,7 @@ and open the template in the editor.
         // put your code here
         if(!isset($_SESSION["USR"])){
         ?>
-        <form action="<?php=URL?>/controlador/valida.php" method="post">
+        <form action="<?=URL?>/controlador/valida.php" method="post">
             <div><label>Nombre</label><input id="nomusu" type="text" name="nomusu"></div>
             <div><label>Clave</label><input id="claveusu" type="password" name="claveusu"></div>
             <input id="enviar" type="button" value="Acceder">
@@ -29,8 +29,14 @@ and open the template in the editor.
             </form>
         <?php
         }
+        else{
+        ?>
+        <a href="<?=URL?>/controlador/cierrasession.php"> Cerrar Sesion</a>
+       <?php
+        }
         ?>
         
+     
     </body>
     <script type="text/javascript" >
       $(document).ready(function(){
@@ -41,7 +47,7 @@ and open the template in the editor.
                        alert("Debe agregar un usuario y clave");
                     }
                     else{
-                        $.ajax({url:"<?php=URL?>/controlador/valida.php"
+                        $.ajax({url:"<?=URL?>/controlador/valida.php"
                                 ,type:"post"
                                 ,data:{'nomusu':$("#nomusu").val(),
                                         'claveusu':$("#claveusu").val()}
@@ -52,7 +58,7 @@ and open the template in the editor.
                                     }
                               
                     );//cierre ajax
-                        
+                        //prueba
                         
                     }
                                 
